@@ -132,6 +132,15 @@ public class BookDatabase {
 					insertStmt.setString(5, patronName);
 					insertStmt.executeUpdate();
 				}
+				
+				// Delete from returned_books if borrowed again
+				String deleteFromReturnedSql = "DELETE FROM returned_books WHERE bookId = ? AND patronId = ?";
+				try (PreparedStatement deleteReturnedStmt = connection.prepareStatement(deleteFromReturnedSql)) {
+					deleteReturnedStmt.setInt(1, bookId);
+					deleteReturnedStmt.setInt(2, patronId);
+					deleteReturnedStmt.executeUpdate();
+				}
+
 				return true;
 			} else {
 				System.out.println("Book not found with title: " + title);

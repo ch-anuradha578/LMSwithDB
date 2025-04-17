@@ -44,7 +44,7 @@ public class LibraryService {
 			return false;
 		}
 		if (book.isBorrowed()) {
-			System.out.println("This book is already borrowed by Patron ID: " + book.getBorrowedBy());
+			System.out.println("This book is already borrowed by Patron: " + book.getBorrowedBy());
 			return false;
 		}
 		book.borrow(patronId);

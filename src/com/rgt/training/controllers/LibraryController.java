@@ -130,7 +130,7 @@ public class LibraryController {
 				} else if (libraryService.borrowBook(borrowPatronId, borrowTitle)) {
 					System.out.println("Book borrowed successfully!");
 				} else {
-					System.out.println("Book is already borrowed or an error occurred.");
+					System.out.println("Book is already borrowed.");
 				}
 				break;
 
